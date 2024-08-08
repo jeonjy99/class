@@ -4,7 +4,6 @@
     pollSCM('* * * * *') 
   } 
   stages { 
-Jenkins-practice.md
     stage('Checkout') { 
       steps { 
         git branch: 'main',  
@@ -24,8 +23,7 @@ Jenkins-practice.md
     } 
     stage('Deploy') { 
       steps { 
-        deploy adapters: [tomcat9(credentialsId: 'tomcat-manager', url: 'http://192.168.56.102:8080/')], 
-contextPath: null, war: 'target/hello-world.war' 
+        deploy adapters: [tomcat9(credentialsId: 'tomcat-manager', url: 'http://192.168.56.102:8080/')], contextPath: null, war: 'target/hello-world.war' 
       } 
     } 
   } 
