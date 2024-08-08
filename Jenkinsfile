@@ -1,8 +1,7 @@
  pipeline { 
-  agent any 
-  triggers { 
-    pollSCM('* * * * *') 
-  } 
+  agent {
+    label "jenkins-node"
+  }
   stages { 
     stage('Checkout') { 
       steps { 
