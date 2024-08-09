@@ -1,4 +1,4 @@
- pipeline { 
+pipeline { 
   agent { 
     kubernetes { 
       yaml ''' 
@@ -28,7 +28,7 @@
               items: 
                 - key: .dockerconfigjson 
                   path: config.json 
-        ''' 
+      ''' 
     } 
   } 
   stages { 
@@ -56,9 +56,11 @@
     stage('Build & Tag & Push Docker Image') { 
       steps { 
         container('kaniko') { 
-          sh 'executor --context=dir://$WORKSPACE --destination=httpd:$BUILD_NUMBER --destination=httpd:latest' 
+          sh '''
+          executor --context=dir://$WORKSPACE --destination=httpd:$BUILD_NUMBER --destination=httpd:latest
+          ''' 
         } 
       } 
     } 
   } 
-} 
+}
