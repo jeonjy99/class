@@ -57,7 +57,7 @@ pipeline {
       steps { 
         container('kaniko') { 
           sh '''
-          executor --context=dir://$WORKSPACE --destination=hello:$BUILD_NUMBER --destination=hello:latest
+          executor --context=dir://$WORKSPACE --destination=jeonjuyeon/hello:$BUILD_NUMBER --destination=jeonjuyeon/hello:latest
           ''' 
         } 
       } 
