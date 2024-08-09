@@ -35,7 +35,7 @@ pipeline {
     stage('Checkout') { 
       steps { 
         container('maven') { 
-          git branch: 'main', url: 'https://github.com/jeonjy99/ArgoCD.git'
+          git branch: 'main', url: 'https://github.com/jeonjy99/class.git'
         } 
       } 
     } 
